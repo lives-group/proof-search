@@ -1,0 +1,146 @@
+\documentclass[paper=a4, fontsize=12pt]{article}
+
+\usepackage[portuguese]{babel}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{proof}
+
+\usepackage{iftex}
+\pagestyle{empty}
+
+\ifTUTeX
+  \usepackage{fontspec}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc} % The default since 2018
+  \DeclareUnicodeCharacter{200B}{{\hskip 0pt}}
+\fi
+
+
+
+\newtheorem{theorem}{Teorema}
+\newtheorem{lemma}{Lema}
+\newtheorem{corollary}{Corolário}
+\theoremstyle{definition}
+\newtheorem{Example}{Exemplo}
+\newtheorem{Definition}{Definição}
+
+
+\begin{document}
+
+\begin{center}
+  UNIVERSIDADE FEDERAL DE OURO PRETO \\
+  DEPARTAMENTO DE COMPUTAÇÃO\\
+\end{center}
+\vspace{2cm}
+
+\begin{center}
+{\bf\Large Título:} \Large{Verificação formal de algoritmos para construção automática de provas da lógica proposicional}
+\end{center}
+\vspace{4cm}
+\begin{flushleft}
+Aluno: Felipe Peret Moraes Sasdelli\\
+Orientador: Dr. Rodrigo Geraldo Ribeiro\\
+\end{flushleft}
+\vspace{4cm}
+\noindent
+Relatório Final, referente ao período 08/2020 a 07/2021, apresentado à
+Universidade Federal de Ouro Preto, como parte das exigências do
+programa de iniciação científica do edital EDITAL
+\vspace{1cm}
+\begin{center}
+Ouro Preto - Minas Gerais - Brasil\\
+\today
+\end{center}
+
+\clearpage
+
+\begin{center}
+{\bf\Large Resumo:}\\ \Large{Verificação formal de algoritmos para construção automática de provas da lógica proposicional}
+\end{center}
+
+\vspace{1cm}
+
+A teoria da demonstração é o ramo do conhecimento humano devotado ao estudo de
+propriedades de sistemas lógicos e de algoritmos para elaborar provas
+utilizando-os [Negri01]. Além dos estudo da estrutura de provas, a
+teoria da demonstração preocupa-se em estabelecer (quando possível) métodos
+sistemáticos para construção de provas. Para a lógica proposicional, existem
+diversos métodos para construção de demonstração e, neste projeto, estamos
+interessados na verificação formal, em um assistente de provas, do cálculo de
+sequentes sem a regra de contraction, conforme especificado por Dyckhoff~\cite{Dychoff92}.
+Esse projeto é a continuação de nossos esforços de formalização, em assistentes de provas,
+de resultados clássicos da lógica intuicionista e de sua aplicação computacional.
+
+\begin{center}
+https://github.com/lives-group/proof-search
+\end{center}
+\vspace{2cm}
+\begin{center}
+\begin{tabular}{c}
+$\,$  \\
+$\,$  \\
+\hline
+Bolsista: Felipe Peret Moraes Sasdelli\\
+$\,$  \\
+$\,$  \\
+$\,$  \\ \hline
+Orientador: Prof. Dr. Rodrigo Geraldo Ribeiro
+\end{tabular}
+\end{center}
+
+
+
+\clearpage
+
+\section{Introdução}
+
+A lógica formal é o estudo dos princípios e critérios de inferências e
+demonstrações válidas. A teoria da demonstração é o ramo do conhecimento humano
+que estuda a formalização e propriedades de diferentes sistemas lógicos. Usualmente,
+tais sistemas são compostos por três partes: a sintaxe (sua notação),
+o seu significado (sua semântica) e regras de inferência~\cite{Negri2001}.
+
+Dentre todos diferentes formalismos de inferência, a dedução natural é o mais
+amplamente utilizado. Esse formalismo constitui a base semântica da lógica intuicionista
+pois, especifica como construir provas para uma determinada proposição decompondo-a em
+proposições menores. Apesar de possuir uma semântica simples, a dedução natural possui
+um sério problema do ponto de vista computacional: o sistema é não determinístico, isto é,
+a partir da sintaxe da fórmula a ser provada e das suposições atuais não é possível determinar,
+de maneira única, qual o próximo passo de dedução a ser realizado por um algoritmo.
+
+O cálculo de sequentes, originalmente formulado por Gentzen~\cite{Gentzen36} para demonstração de
+consistência da lógica, resolve parcialmente o problema de não determinismo por reduzir o
+espaço de busca das possíveis deduções para uma certa fórmula. Porém, apesar de permitir a redução
+de possibilidades, o cálculo de sequentes ainda possui escolhas não determinísticas
+para a construção de demonstrações. Melhorias no sentido de redução do não determinismo foram feitas
+pelo trabalho de Andreolli no contexto da lógica linear com a introdução da noção de focusing, que
+a aplicação de regras somente a fórmulas ditas "focused". Com isso, o não determinismo do processo
+de construção automatizada de prova é eliminado e, portanto, temos que o sistema do cálculo de sequentes
+com focusing constitui um algoritmo para demonstração de teoremas da lógica proposicional.
+
+Apesar do trabalho de Andreolli apresentar uma evolução importante no desenvolvimento de algoritmos
+para construção automatizada de provas, este é desnecessariamente complexo e modifica de maneira
+significativa o formato de regras do cálculo de sequentes. Uma abordagem mais elegante para um
+cálculo determinista é o cálculo de sequentes sem contraction de Dyckhoff~\cite{Dyckhoff92}, que modifica
+apenas as regras para implicação e garante a aplicabilidade uma única regra em cada passo de dedução
+(determinismo), terminação e correção em relação a versão tradicional do cálculo de sequentes.
+
+Neste sentido, o presente projeto pretende formalizar, em um assistente de provas, o cálculo de sequentes
+sem contraction e usá-lo como base para implementação de um algoritmo correto para construção de
+deduções na lógica proposicional.
+
+
+\section{Revisão da Literatura}
+
+
+\section{Desenvolvimento}
+
+
+\section{Conclusão e Trabalhos Futuros}
+
+
+\bibliographystyle{plain}
+\bibliography{referencias}
+\end{document}
